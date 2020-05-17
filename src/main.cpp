@@ -1,8 +1,8 @@
-#include <stdio>
-
+#include <iostream>
+#include <fmt/format.h>
 
 int main()
 {
-    std::cout << "HelloWorld"
+    std::cout << fmt::format("Value: {}", 10) << std::endl;
     return 1;
 }
