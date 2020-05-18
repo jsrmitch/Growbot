@@ -3,6 +3,10 @@
 #include <chrono>
 #include <thread>
 
+namespace GardenRobot {
+namespace Library {
+namespace Adapters {
+
 Noyito4ChannelAdc::Noyito4ChannelAdc(uint8_t i2cAddress)
     : m_i2cAddress(i2cAddress)
     , m_conversionDelay(ADS1015_CONVERSIONDELAY)
@@ -52,7 +56,6 @@ uint16_t Noyito4ChannelAdc::readADC_SingleEnded(uint8_t channel)
   config |= ADS1015_REG_CONFIG_OS_SINGLE;
 
   // Write config register to the ADC
-  // writeRegister(m_i2cAddress, ADS1015_REG_POINTER_CONFIG, config); // this is from example meant for arduino
   const auto ret = wiringPiI2CWriteReg16  (m_fd, ADS1015_REG_POINTER_CONFIG, config);
 
   // Wait for the conversion to complete
@@ -60,6 +63,9 @@ uint16_t Noyito4ChannelAdc::readADC_SingleEnded(uint8_t channel)
 
   // Read the conversion results
   // Shift 12-bit results right 4 bits for the ADS1015
-  //return readRegister(m_i2cAddress, ADS1015_REG_POINTER_CONVERT) >> m_bitShift;
   return wiringPiI2CReadReg16(m_fd, ADS1015_REG_POINTER_CONVERT) >> m_bitShift;
+}
+
+}
+}
 }

@@ -1,14 +1,27 @@
 #include "MoistureSensor.h"
-#include <wiringPi.h>
 
-MoistureSensor::MoistureSensor()
+namespace GardenRobot {
+namespace Library {
+namespace Sensors {
+
+MoistureSensor::MoistureSensor(std::unique_ptr<Adapters::IAdc> adc)
+    : m_adc(std::move(adc))
 {
-    wiringPiSetup();
+    
 }
 
 MoistureSensor::~MoistureSensor(){}
 
+void AgregateSensorData()
+{
+
+}
+
 int MoistureSensor::Moisture()
 {
     return m_moisture;
+}
+
+}
+}
 }

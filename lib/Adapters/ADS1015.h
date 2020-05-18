@@ -1,3 +1,7 @@
+namespace GardenRobot {
+namespace Library {
+namespace Adapters {
+
 /*=========================================================================
     I2C ADDRESS/BITS
     -----------------------------------------------------------------------*/
@@ -88,3 +92,7 @@ enum adsGain_t {
   GAIN_EIGHT = ADS1015_REG_CONFIG_PGA_0_512V,
   GAIN_SIXTEEN = ADS1015_REG_CONFIG_PGA_0_256V
 };
+
+}
+}
+}
