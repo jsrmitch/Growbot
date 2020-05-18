@@ -1,11 +1,12 @@
 #pragma once
-
+#include "IAdc.h"
 #include <atomic>
 
 class MoistureSensor
 {
 private:
     std::atomic<int> m_moisture;
+
 public:
     MoistureSensor();
     ~MoistureSensor();

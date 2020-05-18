@@ -2,6 +2,7 @@
 
 #include "IAdc.h"
 #include "ADS1015.h"
+#include <stdint.h>
 
 /// <summary>
 /// class for using NOYITO 4-Channel 16-Bit ADC with PGA for RPI Raspberry PI https://www.amazon.com.au/gp/product/B07PNMXR8B/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1
@@ -18,9 +19,9 @@ private:
     adsGain_t m_gain;          ///< ADC gain
 
 public:
-    Noyito4ChannelAdc{uint8_t i2cAddress = ADS1015_ADDRESS};
+    Noyito4ChannelAdc(uint8_t i2cAddress = ADS1015_ADDRESS);
 
-    ~Noyito4ChannelAdc{};
+    ~Noyito4ChannelAdc();
 
-    uint16_t readADC_SingleEnded{uint8_t channel} override;
-}
+    uint16_t readADC_SingleEnded(uint8_t channel) override;
+};

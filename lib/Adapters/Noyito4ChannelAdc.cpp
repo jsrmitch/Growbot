@@ -1,6 +1,7 @@
 #include "Noyito4ChannelAdc.h"
-#include "Adafruit_ADS1015.h"
 #include <wiringPiI2C.h>
+#include <chrono>
+#include <thread>
 
 Noyito4ChannelAdc::Noyito4ChannelAdc(uint8_t i2cAddress)
     : m_i2cAddress(i2cAddress)
@@ -52,13 +53,13 @@ uint16_t Noyito4ChannelAdc::readADC_SingleEnded(uint8_t channel)
 
   // Write config register to the ADC
   // writeRegister(m_i2cAddress, ADS1015_REG_POINTER_CONFIG, config); // this is from example meant for arduino
-  const auto ret = wiringPiI2CWriteReg16  (m_fd, ADS1015_REG_POINTER_CONFIG, config)
+  const auto ret = wiringPiI2CWriteReg16  (m_fd, ADS1015_REG_POINTER_CONFIG, config);
 
   // Wait for the conversion to complete
-  delay(m_conversionDelay);
+  std::this_thread::sleep_for(std::chrono::milliseconds(m_conversionDelay));
 
   // Read the conversion results
   // Shift 12-bit results right 4 bits for the ADS1015
   //return readRegister(m_i2cAddress, ADS1015_REG_POINTER_CONVERT) >> m_bitShift;
-  const auto retRead = wiringPiI2CReadReg16(m_fd, ADS1015_REG_POINTER_CONVERT) >> m_bitShift
+  return wiringPiI2CReadReg16(m_fd, ADS1015_REG_POINTER_CONVERT) >> m_bitShift;
 }

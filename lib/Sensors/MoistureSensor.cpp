@@ -1,16 +1,14 @@
 #include "MoistureSensor.h"
 #include <wiringPi.h>
-#include <wiringPiI2C.h>
 
-MoisureSensor::MoistureSensor()
-    : m_running(true)
+MoistureSensor::MoistureSensor()
 {
     wiringPiSetup();
 }
 
-MoisureSensor::~MoistureSensor(){}
+MoistureSensor::~MoistureSensor(){}
 
-int MoisureSensor::Moisture()
+int MoistureSensor::Moisture()
 {
     return m_moisture;
 }

@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 
 # Set the project name to your project name, my project isn't very descriptive
-project(robotgarden CXX)
+project(robotgarden VERSION 1.0
+                    DESCRIPTION "System to monitor and maintain home garden"
+                    LANGUAGES CXX)
 
 include(cmake/Conan.cmake)
 run_conan()
