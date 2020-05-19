@@ -9,7 +9,5 @@
 int main()
 {
     wiringPiSetup();
-    Library::Sensors::MoistureSensor moistureSensor(std::make_unique<Library::Adapters::Noyito4ChannelAdc>());
-    std::cout << fmt::format("Value: {}", 10) << std::endl;
     return 0;
 }

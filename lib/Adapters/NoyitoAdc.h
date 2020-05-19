@@ -12,7 +12,7 @@ namespace Adapters {
 /// based on https://github.com/adafruit/Adafruit_ADS1X15/blob/master/Adafruit_ADS1015.h
 /// beleive this is a ADS1015
 /// <summary>
-class Noyito4ChannelAdc : public IAdc
+class NoyitoAdc : public IAdc
 {
 private:
     // Instance-specific properties
@@ -21,9 +21,9 @@ private:
     adsGain_t m_gain;          ///< ADC gain
 
 public:
-    Noyito4ChannelAdc(uint8_t i2cAddress = ADS1015_ADDRESS);
+    NoyitoAdc(uint8_t i2cAddress = ADS1015_ADDRESS);
 
-    ~Noyito4ChannelAdc();
+    ~NoyitoAdc();
 
     uint16_t readADC_SingleEnded(uint8_t channel) override;
 };

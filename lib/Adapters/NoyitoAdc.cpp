@@ -6,17 +6,17 @@
 namespace Library {
 namespace Adapters {
 
-Noyito4ChannelAdc::Noyito4ChannelAdc(uint8_t i2cAddress)
+NoyitoAdc::NoyitoAdc(uint8_t i2cAddress)
     : m_i2cAddress(i2cAddress)
     , m_conversionDelay(ADS1015_CONVERSIONDELAY)
-    , m_gain(GAIN_TWOTHIRDS) /* +/- 6.144V range (limited to VDD +0.3V max!) */
+    , m_gain(GAIN_ONE)
 {
     m_fd = wiringPiI2CSetup(m_i2cAddress);
 }
 
-Noyito4ChannelAdc::~Noyito4ChannelAdc(){}
+NoyitoAdc::~NoyitoAdc(){}
 
-uint16_t Noyito4ChannelAdc::readADC_SingleEnded(uint8_t channel)
+uint16_t NoyitoAdc::readADC_SingleEnded(uint8_t channel)
 {
     if(channel > 3) // Noyito4Channel ADC only has 4 channels
     {
@@ -54,7 +54,7 @@ uint16_t Noyito4ChannelAdc::readADC_SingleEnded(uint8_t channel)
   config |= ADS1015_REG_CONFIG_OS_SINGLE;
 
   // Write config register to the ADC
-  const auto ret = wiringPiI2CWriteReg16  (m_fd, ADS1015_REG_POINTER_CONFIG, config);
+  const auto ret = wiringPiI2CWriteReg16(m_fd, ADS1015_REG_POINTER_CONFIG, config);
 
   // Wait for the conversion to complete
   std::this_thread::sleep_for(std::chrono::milliseconds(m_conversionDelay));

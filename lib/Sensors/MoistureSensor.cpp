@@ -1,24 +1,16 @@
 #include "MoistureSensor.h"
+#include <chrono>
 
 namespace Library {
 namespace Sensors {
 
-MoistureSensor::MoistureSensor(std::unique_ptr<Adapters::IAdc> adc)
-    : m_adc(std::move(adc))
-{
-    
-}
+MoistureSensor::MoistureSensor(){}
 
 MoistureSensor::~MoistureSensor(){}
 
-void AgregateSensorData()
+MoistureSensor::value_type MoistureSensor::Read()
 {
-
-}
-
-int MoistureSensor::Moisture()
-{
-    return m_moisture;
+    return 0.0;
 }
 
 }
