@@ -5,10 +5,8 @@ namespace Library::Adapaters {
 template <typename T>
 class IReader
 {
-    private:
-
-    public:
-    T Read() = 0;
+public:
+    virtual T Read() = 0;
 };
 
 }

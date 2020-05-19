@@ -5,8 +5,7 @@
 #include <memory> //unique_ptr
 #include "IAnalogueSensor.h"
 
-namespace Library {
-namespace Sensors {
+namespace Library::Sensors {
 
 class MoistureSensor : public IAnalogueSensor<double>
 {
@@ -22,5 +21,4 @@ public:
     value_type Read() override;
 };
 
-}
 }

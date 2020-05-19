@@ -1,7 +1,6 @@
 #pragma once
 
-namespace Library {
-namespace Sensors {
+namespace Library::Sensors {
 
 template <typename T>
 class IAnalogueSensor
@@ -12,5 +11,4 @@ public:
     virtual T Read() = 0;
 };
 
-}
 }

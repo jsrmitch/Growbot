@@ -1,7 +1,6 @@
 #pragma once
 
-namespace Library {
-namespace Adapters {
+namespace Library::Adapaters {
 
 /*=========================================================================
     I2C ADDRESS/BITS
@@ -85,7 +84,8 @@ constexpr auto ADS1015_REG_CONFIG_CQUE_NONE {0x0003}; ///< Disable thecomparator
 /*=========================================================================*/
 
 /** Gain settings */
-enum adsGain_t {
+enum adsGain_t 
+{
   GAIN_TWOTHIRDS = ADS1015_REG_CONFIG_PGA_6_144V,
   GAIN_ONE = ADS1015_REG_CONFIG_PGA_4_096V,
   GAIN_TWO = ADS1015_REG_CONFIG_PGA_2_048V,
@@ -94,5 +94,4 @@ enum adsGain_t {
   GAIN_SIXTEEN = ADS1015_REG_CONFIG_PGA_0_256V
 };
 
-}
 }

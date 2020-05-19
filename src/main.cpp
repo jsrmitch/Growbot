@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fmt/format.h>
-#include "Noyito4ChannelAdc.h"
+#include "NoyitoAdc.h"
 #include "MoistureSensor.h"
 #include <memory>
 #include <wiringPi.h>

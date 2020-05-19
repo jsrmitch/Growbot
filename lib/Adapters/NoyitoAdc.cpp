@@ -1,10 +1,10 @@
-#include "Noyito4ChannelAdc.h"
+#include "NoyitoAdc.h"
 #include <wiringPiI2C.h>
 #include <chrono>
 #include <thread>
+#include "NoyitoAdcReader.h"
 
-namespace Library {
-namespace Adapters {
+namespace Library::Adapaters {
 
 NoyitoAdc::NoyitoAdc(uint8_t i2cAddress)
     : m_i2cAddress(i2cAddress)
@@ -13,8 +13,6 @@ NoyitoAdc::NoyitoAdc(uint8_t i2cAddress)
 {
     m_fd = wiringPiI2CSetup(m_i2cAddress);
 }
-
-NoyitoAdc::~NoyitoAdc(){}
 
 uint16_t NoyitoAdc::readADC_SingleEnded(uint8_t channel)
 {
@@ -63,5 +61,9 @@ uint16_t NoyitoAdc::readADC_SingleEnded(uint8_t channel)
   return wiringPiI2CReadReg16(m_fd, ADS1015_REG_POINTER_CONVERT);
 }
 
+std::unique_ptr<IReader<uint16_t>> NoyitoAdc::Reader(uint8_t channel)
+{
+    return std::make_unique<NoyitoAdcReader>(shared_from_this(), channel);
 }
+
 }

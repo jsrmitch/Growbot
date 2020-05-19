@@ -1,5 +1,5 @@
 # Adapters
-add_library(Adapters Adapters/Noyito4ChannelAdc.cpp)
+add_library(Adapters Adapters/NoyitoAdc.cpp)
 target_include_directories(Adapters PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Adapters)
 target_link_libraries(Adapters PRIVATE "${wiringPi_LIB}")
 
