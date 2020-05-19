@@ -1,4 +1,3 @@
-namespace GardenRobot {
 namespace Library {
 namespace Adapters {
 
@@ -93,6 +92,5 @@ enum adsGain_t {
   GAIN_SIXTEEN = ADS1015_REG_CONFIG_PGA_0_256V
 };
 
-}
 }
 }

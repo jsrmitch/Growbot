@@ -1,6 +1,5 @@
 #include "MoistureSensor.h"
 
-namespace GardenRobot {
 namespace Library {
 namespace Sensors {
 
@@ -22,6 +21,5 @@ int MoistureSensor::Moisture()
     return m_moisture;
 }
 
-}
 }
 }

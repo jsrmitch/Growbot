@@ -9,6 +9,7 @@ include(cmake/Conan.cmake)
 run_conan()
 
 add_subdirectory(lib)
+find_library(wiringPi_LIB wiringPi)
 add_executable(garden src/main.cpp)
 
 target_compile_features(garden PRIVATE cxx_std_17)
@@ -17,5 +18,7 @@ target_link_libraries(garden
   PRIVATE
     CONAN_PKG::fmt
     Sensors
+    Adapters
+    "${wiringPi_LIB}"
 )
     

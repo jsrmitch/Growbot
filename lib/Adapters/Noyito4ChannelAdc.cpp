@@ -3,14 +3,12 @@
 #include <chrono>
 #include <thread>
 
-namespace GardenRobot {
 namespace Library {
 namespace Adapters {
 
 Noyito4ChannelAdc::Noyito4ChannelAdc(uint8_t i2cAddress)
     : m_i2cAddress(i2cAddress)
     , m_conversionDelay(ADS1015_CONVERSIONDELAY)
-    , m_bitShift(4)
     , m_gain(GAIN_TWOTHIRDS) /* +/- 6.144V range (limited to VDD +0.3V max!) */
 {
     m_fd = wiringPiI2CSetup(m_i2cAddress);
@@ -62,10 +60,8 @@ uint16_t Noyito4ChannelAdc::readADC_SingleEnded(uint8_t channel)
   std::this_thread::sleep_for(std::chrono::milliseconds(m_conversionDelay));
 
   // Read the conversion results
-  // Shift 12-bit results right 4 bits for the ADS1015
-  return wiringPiI2CReadReg16(m_fd, ADS1015_REG_POINTER_CONVERT) >> m_bitShift;
+  return wiringPiI2CReadReg16(m_fd, ADS1015_REG_POINTER_CONVERT);
 }
 
-}
 }
 }

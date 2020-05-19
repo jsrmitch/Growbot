@@ -4,7 +4,6 @@
 #include "ADS1015.h"
 #include <stdint.h>
 
-namespace GardenRobot {
 namespace Library {
 namespace Adapters {
 
@@ -19,7 +18,6 @@ private:
     // Instance-specific properties
     uint8_t m_i2cAddress;      ///< the I2C address
     uint8_t m_conversionDelay; ///< conversion deay
-    uint8_t m_bitShift;        ///< bit shift amount
     adsGain_t m_gain;          ///< ADC gain
 
 public:
@@ -30,6 +28,5 @@ public:
     uint16_t readADC_SingleEnded(uint8_t channel) override;
 };
 
-}
 }
 }

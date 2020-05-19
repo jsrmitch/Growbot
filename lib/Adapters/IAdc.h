@@ -2,7 +2,6 @@
 
 #include <stdint.h>
 
-namespace GardenRobot {
 namespace Library {
 namespace Adapters {
 
@@ -16,6 +15,5 @@ public:
     virtual uint16_t readADC_SingleEnded(uint8_t channel) = 0;
 };
 
-}
 }
 }

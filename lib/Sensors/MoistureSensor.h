@@ -4,7 +4,6 @@
 #include <thread>
 #include <memory> //unique_ptr
 
-namespace GardenRobot {
 namespace Library {
 namespace Sensors {
 
@@ -27,6 +26,5 @@ public:
     int Moisture();
 };
 
-}
 }
 }
