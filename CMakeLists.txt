@@ -20,5 +20,6 @@ target_link_libraries(garden
     Sensors
     Adapters
     "${wiringPi_LIB}"
+    Actuators
 )
     
