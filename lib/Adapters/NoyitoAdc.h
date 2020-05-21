@@ -4,7 +4,7 @@
 #include "ADS1015.h"
 #include <cstdint>
 
-namespace Library::Adapaters {
+namespace Library::Adapters {
 
 /// <summary>
 /// class for using NOYITO 4-Channel 16-Bit ADC with PGA for RPI Raspberry PI https://www.amazon.com.au/gp/product/B07PNMXR8B/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1

@@ -4,7 +4,7 @@
 #include <thread>
 #include "NoyitoAdcReader.h"
 
-namespace Library::Adapaters {
+namespace Library::Adapters {
 
 NoyitoAdc::NoyitoAdc(uint8_t i2cAddress)
     : m_i2cAddress(i2cAddress)

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Library::Adapaters {
+namespace Library::Adapters {
 
 /*=========================================================================
     I2C ADDRESS/BITS

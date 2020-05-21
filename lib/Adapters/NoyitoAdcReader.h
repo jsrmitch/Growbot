@@ -3,8 +3,9 @@
 #include "IReader.h"
 #include <cstdint>
 #include <memory>
+#include "NoyitoAdc.h"
 
-namespace Library::Adapaters {
+namespace Library::Adapters {
 
 class NoyitoAdcReader : public IReader<uint16_t>
 {

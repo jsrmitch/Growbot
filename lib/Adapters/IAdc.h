@@ -4,7 +4,7 @@
 #include "IReader.h"
 #include <memory>
 
-namespace Library::Adapaters {
+namespace Library::Adapters {
 
 class IAdc
 {

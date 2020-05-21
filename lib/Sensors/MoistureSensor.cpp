@@ -3,13 +3,13 @@
 
 namespace Library::Sensors {
 
-MoistureSensor::MoistureSensor(){}
-
-MoistureSensor::~MoistureSensor(){}
+MoistureSensor::MoistureSensor(std::unique_ptr<Library::Adapters::IReader<uint16_t>> reader)
+    : m_reader(std::move(reader))
+{}
 
 MoistureSensor::value_type MoistureSensor::Read()
 {
-    return 0.0;
+    return static_cast<double>(m_reader->Read()); // implicit cast here, this is a uint16_t
 }
 
 }

@@ -1,6 +1,6 @@
 #include "NoyitoAdcReader.h"
 
-namespace Library::Adapaters {
+namespace Library::Adapters {
 
 NoyitoAdcReader::NoyitoAdcReader(std::shared_ptr<NoyitoAdc> adc, const uint8_t channel)
     : m_adc{adc}
@@ -9,7 +9,7 @@ NoyitoAdcReader::NoyitoAdcReader(std::shared_ptr<NoyitoAdc> adc, const uint8_t c
 
 uint16_t NoyitoAdcReader::Read()
 {
-    m_adc->readADC_SingleEnded(m_channel);
+    return m_adc->readADC_SingleEnded(m_channel);
 }
 
 }
