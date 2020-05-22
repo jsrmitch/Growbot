@@ -21,5 +21,6 @@ target_link_libraries(garden
     Adapters
     "${wiringPi_LIB}"
     Actuators
+    pthread
 )
     

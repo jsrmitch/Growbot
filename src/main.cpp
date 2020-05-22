@@ -1,17 +1,23 @@
 #include <iostream>
 #include <fmt/format.h>
-#include "NoyitoAdc.h"
-#include "MoistureSensor.h"
 #include <memory>
 #include <wiringPi.h>
+#include "GikfunAirDiaphragmPump.h"
+#include <chrono>
+#include <thread>
+
+
 
 
 int main()
 {
     wiringPiSetup();
-    auto noyitoAdc = std::make_shared<Library::Adapters::NoyitoAdc>();
-    const uint8_t channel = 0;
-    Library::Sensors::MoistureSensor moistureSensor(noyitoAdc->Reader(channel));
-    //std::cout << moistureSensor.Read();
+    const auto pin = 4;
+    Library::Actuators::GikfunAirDiaphragmPump pump(pin);
+    pump.Start();
+    std::cout << "Hey Emma its robot Garden I turned the pump on" << std::endl;
+    std::this_thread::sleep_for(std:: chrono::milliseconds(10000));
+    pump.Stop();
+    std::cout << "Hey Emma its robot Garden I turned the pump off" << std::endl;
     return 0;
 }
