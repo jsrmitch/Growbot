@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fmt/format.h>
 #include <memory>
 #include <wiringPi.h>
 #include "GikfunAirDiaphragmPump.h"

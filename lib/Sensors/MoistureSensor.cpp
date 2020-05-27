@@ -9,7 +9,8 @@ MoistureSensor::MoistureSensor(std::unique_ptr<Library::Adapters::IReader<uint16
 
 MoistureSensor::value_type MoistureSensor::Read()
 {
-    return static_cast<double>(m_reader->Read()); // implicit cast here, this is a uint16_t
+    // @TODO need to convert reading into readable data
+    return static_cast<double>(m_reader->Read());
 }
 
 }

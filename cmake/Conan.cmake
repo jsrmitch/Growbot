@@ -18,8 +18,6 @@ conan_cmake_run(
   REQUIRES
     ${CONAN_EXTRA_REQUIRES}
     # ---------- Conan Libraries ----------
-    fmt/6.1.2
-    boost_beast/1.69.0@bincrafters/stable
     # -------------------------------------
   OPTIONS
     ${CONAN_EXTRA_OPTIONS}

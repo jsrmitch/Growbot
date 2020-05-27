@@ -13,3 +13,7 @@ add_library(Actuators Actuators/GikfunAirDiaphragmPump.cpp)
 target_include_directories(Actuators PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Actuators)
 target_link_libraries(Adapters PRIVATE "${wiringPi_LIB}")
 
+# Image
+add_library(Image Image/PiCam.cpp)
+target_include_directories(Image PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Image)
+
