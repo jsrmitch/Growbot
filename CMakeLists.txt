@@ -8,14 +8,8 @@ project(robotgarden VERSION 1.0
 include(cmake/Conan.cmake)
 run_conan()
 
-include(FetchContent)
-FetchContent_Declare(
-  gRPC
-  GIT_REPOSITORY https://github.com/grpc/grpc
-  GIT_TAG        v1.28.0  # e.g v1.28.0
-)
-set(FETCHCONTENT_QUIET OFF)
-FetchContent_MakeAvailable(gRPC)
+include(cmake/ManualThirdParty.cmake)
+run_manual_third_party_getter()
 
 add_subdirectory(lib)
 find_library(wiringPi_LIB wiringPi)
