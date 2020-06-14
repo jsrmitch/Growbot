@@ -6,8 +6,6 @@
 #include <thread>
 
 
-
-
 int main()
 {
     wiringPiSetup();

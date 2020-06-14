@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+package Actuators;
+
+// The greeting service definition.
+service ActuatorService {
+  // Starts Actuator
+  rpc Start (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  // Stops Actuator
+  rpc Stop (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  // Returns if Actuator is on/off
+  rpc Running (google.protobuf.Empty) returns (ActuatorState) {}
+}
+
+// The state of the actuator
+message ActuatorState {
+  bool On = 1;
+}

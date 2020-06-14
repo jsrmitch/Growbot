@@ -4,14 +4,17 @@ cmake_minimum_required(VERSION 3.15) # i need 3.15 for FetchContent_MakeAvailabl
 project(robotgarden VERSION 1.0
                     DESCRIPTION "System to monitor and maintain home garden"
                     LANGUAGES CXX)
-
-include(cmake/Conan.cmake)
-run_conan()
+                    
+# Uncomment this if we use conan
+#include(cmake/Conan.cmake)
+#run_conan()
 
 include(cmake/ManualThirdParty.cmake)
 run_manual_third_party_getter()
 
 add_subdirectory(lib)
+add_subdirectory(protos)
+
 find_library(wiringPi_LIB wiringPi)
 add_executable(garden src/main.cpp)
 
@@ -25,6 +28,7 @@ target_link_libraries(garden
     Actuators
     pthread
     Image
-    grpc++  
+    grpc++
+    ActuatorService
 )
     
