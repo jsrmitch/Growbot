@@ -7,15 +7,9 @@ namespace Library::Actuators {
 class GikfunAirDiaphragmPump : public IActuator
 {
 public:
-    GikfunAirDiaphragmPump(const int pin);
-
-    void Start() override;
-    void Stop() override;
-    bool Running() override;
-
-private:
-    int m_pin;
-    bool m_running;    
+    virtual void Start(const int pin) override;
+    virtual void Stop(const int pin) override;
+    virtual bool Running(const int pin) override;
 };
 
 }

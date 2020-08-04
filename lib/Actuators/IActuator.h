@@ -5,10 +5,9 @@ namespace Library::Actuators {
 class IActuator
 {
 public:
-    virtual void Start() = 0;
-    virtual void Stop() = 0;
-
-    virtual bool Running() = 0;
+    virtual void Start(const int pin) = 0;
+    virtual void Stop(const int pin) = 0;
+    virtual bool Running(const int pin) = 0;
 };
 
 }

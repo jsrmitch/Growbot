@@ -4,4 +4,4 @@ include(../cmake/GrpcProtoCompiler.cmake)
 
 get_filename_component(actuator_service__fn "${CMAKE_CURRENT_SOURCE_DIR}/ActuatorService.proto" ABSOLUTE)
 #function(GRPC_PROTO_GENERATE FN_PROTO LIB_NAME BIN_DIR)
-GRPC_PROTO_GENERATE (${actuator_service__fn} ActuatorService ${CMAKE_CURRENT_BINARY_DIR})
+GRPC_PROTO_GENERATE (${actuator_service__fn} ActuatorService ${CMAKE_CURRENT_SOURCE_DIR})

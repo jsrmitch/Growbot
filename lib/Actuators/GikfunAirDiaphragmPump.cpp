@@ -2,29 +2,20 @@
 #include <wiringPi.h>
 
 namespace Library::Actuators {
-
-GikfunAirDiaphragmPump::GikfunAirDiaphragmPump(const int pin)
-    : m_pin(pin)
-    , m_running(false)
-{
-    pinMode(m_pin, OUTPUT);
-}
     
-void GikfunAirDiaphragmPump::Start()
+void GikfunAirDiaphragmPump::Start(const int pin)
 {
-    m_running = true;
-    digitalWrite(m_pin, HIGH);
+    digitalWrite(pin, HIGH);
 }
 
-void GikfunAirDiaphragmPump::Stop()
+void GikfunAirDiaphragmPump::Stop(const int pin)
 {
-    m_running = false;
-    digitalWrite(m_pin, LOW);
+    digitalWrite(pin, LOW);
 }
 
-bool GikfunAirDiaphragmPump::Running()
+bool GikfunAirDiaphragmPump::Running(const int pin)
 {
-    return m_running;
+    return digitalRead(pin) == 1; // im not an animal brad I dont do implicit casting
 }
 
 }

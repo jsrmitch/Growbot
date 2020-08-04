@@ -13,7 +13,6 @@ include(cmake/ManualThirdParty.cmake)
 run_manual_third_party_getter()
 
 add_subdirectory(lib)
-add_subdirectory(protos)
 
 find_library(wiringPi_LIB wiringPi)
 add_executable(garden src/main.cpp)
@@ -29,6 +28,5 @@ target_link_libraries(garden
     pthread
     Image
     grpc++
-    ActuatorService
 )
     
