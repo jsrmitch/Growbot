@@ -164,31 +164,22 @@ Actuators::Service::~Service() {
 }
 
 ::grpc::Status Actuators::Service::StartActuator(::grpc::ServerContext* context, const ::Actuators::ActuatorPin* request, ::google::protobuf::Empty* response) {
-  (void) context;
-  (void) request;
-  (void) response;
   const auto pin {request->pin()}
-  GikfunAirDiaphragmPump pump;
+  GenericPump pump;
   pump.Start(pin);
   return Status::OK;
 }
 
 ::grpc::Status Actuators::Service::StopActuator(::grpc::ServerContext* context, const ::Actuators::ActuatorPin* request, ::google::protobuf::Empty* response) {
-  (void) context;
-  (void) request;
-  (void) response;
   const auto pin {request->pin()}
-  GikfunAirDiaphragmPump pump;
+  GenericPump pump;
   pump.Stop(pin);
   return Status::OK;
 }
 
 ::grpc::Status Actuators::Service::IsActuatorOn(::grpc::ServerContext* context, const ::Actuators::ActuatorPin* request, ::Actuators::ActuatorState* response) {
-  (void) context;
-  (void) request;
-  (void) response;
   const auto pin {request->pin()}
-  GikfunAirDiaphragmPump pump;
+  GenericPump pump;
   pump.Running(pin);
   respone->set_isOn(true);
   return Status::OK;

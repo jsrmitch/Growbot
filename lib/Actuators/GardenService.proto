@@ -1,9 +1,9 @@
 syntax = "proto3";
 import "google/protobuf/empty.proto";
-package Actuators;
+package Garden;
 
 // The greeting service definition.
-service Actuators {
+service Garden {
   // Starts Actuator
   rpc StartActuator (ActuatorPin) returns (google.protobuf.Empty) {}
   // Stops Actuator

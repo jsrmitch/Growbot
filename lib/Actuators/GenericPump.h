@@ -4,7 +4,7 @@
 
 namespace Library::Actuators {
 
-class GikfunAirDiaphragmPump : public IActuator
+class GenericPump : public IActuator
 {
 public:
     virtual void Start(const int pin) override;
