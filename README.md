@@ -1,2 +1,2 @@
-# RobotGarden
+# Growbot
 DIY Home project
