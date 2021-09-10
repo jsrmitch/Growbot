@@ -1,6 +1,6 @@
 syntax = "proto3";
 import "google/protobuf/empty.proto";
-package Garden;
+package Growbot;
 
 // The greeting service definition.
 service Garden {

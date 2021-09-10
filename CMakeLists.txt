@@ -1,32 +1,46 @@
 cmake_minimum_required(VERSION 3.15) # i need 3.15 for FetchContent_MakeAvailable
 
 # Set the project name to your project name, my project isn't very descriptive
-project(robotgarden VERSION 1.0
+project(Growbot VERSION 1.0
                     DESCRIPTION "System to monitor and maintain home garden"
                     LANGUAGES CXX)
-                    
-# Uncomment this if we use conan
-#include(cmake/Conan.cmake)
-#run_conan()
 
-include(cmake/ManualThirdParty.cmake)
-run_manual_third_party_getter()
+include(FetchContent)
 
-add_subdirectory(lib)
+# FetchContent_Declare(
+#     gRPC
+#         GIT_REPOSITORY https://github.com/grpc/grpc
+#         GIT_TAG        v1.40.0
+# )
+# set(FETCHCONTENT_QUIET OFF)
+# FetchContent_MakeAvailable(gRPC)
 
-find_library(wiringPi_LIB wiringPi)
-add_executable(garden src/main.cpp)
+FetchContent_Declare(
+    pigpio
+        GIT_REPOSITORY https://github.com/joan2937/pigpio
+        GIT_TAG        v79
+)
+FetchContent_MakeAvailable(pigpio)
 
-target_compile_features(garden PRIVATE cxx_std_17)
+#add_subdirectory(lib)
 
-target_link_libraries(garden
+find_package(Threads REQUIRED)
+find_package(RT REQUIRED)
+
+
+add_executable(Growbot src/main.cpp)
+
+target_compile_features(Growbot PRIVATE cxx_std_11) # rasp pi tool chain is on GNU 4.9.3
+
+target_link_libraries(Growbot
   PRIVATE
-    Sensors
-    Adapters
-    "${wiringPi_LIB}"
-    Actuators
-    pthread
-    Image
-    grpc++
+    pigpio
+    RT::RT
+    Threads::Threads
+    # Sensors
+    # Adapters
+    # Actuators
+    # Image
+    # grpc++
 )
     

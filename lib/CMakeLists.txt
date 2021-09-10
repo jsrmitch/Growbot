@@ -1,7 +1,7 @@
 # Adapters
 add_library(Adapters Adapters/NoyitoAdc.cpp Adapters/NoyitoAdcReader.cpp)
 target_include_directories(Adapters PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Adapters)
-target_link_libraries(Adapters PRIVATE "${wiringPi_LIB}")
+target_link_libraries(Adapters PRIVATE "${wiringPi_LIB}" pthread)
 
 # Sensors
 add_library(Sensors Sensors/MoistureSensor.cpp)

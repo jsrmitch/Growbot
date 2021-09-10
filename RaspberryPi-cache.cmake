@@ -1,0 +1,1 @@
+set(CMAKE_TOOLCHAIN_FILE "$ENV{HOME}/rpi/tools/Toolchain-RaspberryPi.cmake" CACHE PATH "Build with the rpi toolchain")
