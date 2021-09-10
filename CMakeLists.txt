@@ -17,16 +17,19 @@ include(FetchContent)
 
 FetchContent_Declare(
     pigpio
-        GIT_REPOSITORY https://github.com/joan2937/pigpio
-        GIT_TAG        v79
+        GIT_REPOSITORY https://github.com/jsrmitch/pigpio
+        GIT_TAG        fetchContent
 )
+set(FETCHCONTENT_QUIET OFF)
 FetchContent_MakeAvailable(pigpio)
 
 #add_subdirectory(lib)
 
-find_package(Threads REQUIRED)
-find_package(RT REQUIRED)
-
+# find_package(Threads REQUIRED)
+# find_library(LIBRT rt) 
+# if(LIBRT)
+#     target_link_libraries(pigpio ${LIBRT} Threads::Threads)
+# endif()
 
 add_executable(Growbot src/main.cpp)
 
@@ -35,8 +38,6 @@ target_compile_features(Growbot PRIVATE cxx_std_11) # rasp pi tool chain is on G
 target_link_libraries(Growbot
   PRIVATE
     pigpio
-    RT::RT
-    Threads::Threads
     # Sensors
     # Adapters
     # Actuators
